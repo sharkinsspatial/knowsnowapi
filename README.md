@@ -1,2 +1,3 @@
 # knowsnowapi
-Storage API for the knowsnow application
+
+REST API back end for the knowsnow application.
