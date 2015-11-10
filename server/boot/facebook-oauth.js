@@ -1,3 +1,4 @@
+require('dotenv').load();
 var PassportConfigurator =
     require('loopback-component-passport').PassportConfigurator;
 
@@ -7,6 +8,7 @@ module.exports = function(app) {
 
     var strategy = 'facebook-login';
     var opts = require('../../providers.json')[strategy];
+    opts.successRedirect = process.env.SUCCESS_REDIRECT;
 
     opts.session = opts.session !== false;
 
