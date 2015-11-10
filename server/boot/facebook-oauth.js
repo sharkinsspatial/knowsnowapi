@@ -9,6 +9,8 @@ module.exports = function(app) {
     var strategy = 'facebook-login';
     var opts = require('../../providers.json')[strategy];
     opts.successRedirect = process.env.SUCCESS_REDIRECT;
+    opts.clientID = process.env.CLIENT_ID;
+    opts.clientSecret = process.env.CLIENT_SECRET;
 
     opts.session = opts.session !== false;
 

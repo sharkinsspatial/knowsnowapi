@@ -1,0 +1,13 @@
+{
+    "facebook-login": {
+        "provider": "facebook",
+        "module": "passport-facebook",
+        "callbackURL": "/auth/facebook/callback",
+        "authPath": "/auth/facebook",
+        "callbackPath": "/auth/facebook/callback",
+        "failureRedirect": "/login",
+        "scope": ["email"],
+        "failureFlash": true,
+        "setAccessToken": true
+    }
+}
