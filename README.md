@@ -7,9 +7,9 @@ To install the project's dependencies and development dependencies change to the
 ````shell
 npm install
 ````
-To enbable login with the Facebook Passport provider for Loopback, go to the Facebook developers [console](https://developers.facebook.com/apps) and configure a new application.  Use thes App ID and App Secret when setting the environment variables below.
+To enable login with the Facebook Passport provider for Loopback, go to the Facebook developers [console](https://developers.facebook.com/apps) and configure a new application.  Use the App ID and App Secret when setting the environment variables below.
 
-Before running locally the application requires several environment variables to be set for database connections, S3 credentials and authentication redirects to the client LandApp aplication.  These can be set using
+Before running locally the application requires several environment variables to be set for database connections and authentication redirects to the client knowsnow application.  These can be set using
 ````shell
 $ export MONGOLAB_URL=yourMongoDBUrl
 ````
@@ -23,14 +23,14 @@ $ export CLIENT_ID=yourClientID
 $ export CLIENT_SECRET=yourClientSecret
 ````
 Or create a local .env file with the same NAME VALUE pairs as described [here](https://github.com/motdotla/dotenv).
-Be sure to include .env in your .gitignore to avoid publish keys to Github.
+Be sure to include .env in your .gitignore to avoid publishing keys to Github.
 
 To run the application locally in debug mode use
 ````shell
 $ nodemon --debug index.js
 ````
 This will automatically restart the application anytime changes are made to the code.
-If you want to debug interatively you can install [node-inspector](https://github.com/node-inspector/node-inspector) globally by running
+If you want to debug interactively you can install [node-inspector](https://github.com/node-inspector/node-inspector) globally by running
 ````shell
 $ npm install -g node-inspector
 ````
@@ -51,8 +51,9 @@ Running on Heroku requires the same environment variables as above, they can be 
 ````shell
 $ heroku config:set VARIABLE_NAME=variableValue
 ````
-Then finally to deploy to Heroku run (the Strongloop buildpack is required to enable some Loopback functionality.
+Then finally to deploy to Heroku run
 ````shell
 $ heroku create knowsnowapi --buildpack https://github.com/strongloop/strongloop-buildpacks.git
 $ git push heroku master
 ````
+The Strongloop buildpack is required to enable some Loopback functionality.
