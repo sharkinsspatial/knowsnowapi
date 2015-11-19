@@ -18,8 +18,7 @@
             "required": true
         },
         "endTime": {
-            "type": "date",
-            "required": true
+            "type": "date"
         },
         "glideWax": {
             "type": "string"
@@ -38,6 +37,9 @@
         "route": {
             "type": "object",
             "required": true
+        },
+        "distance": {
+            "type": "number"
         }
     },
     "validations": [],
