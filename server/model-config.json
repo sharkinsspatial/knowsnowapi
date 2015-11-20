@@ -44,5 +44,8 @@
     "UserIdentity": {
         "dataSource": "mongodb",
         "public": true
+    },
+    "Email": {
+        "dataSource": "email"
     }
 }

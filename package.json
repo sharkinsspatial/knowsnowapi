@@ -17,14 +17,14 @@
     "loopback-component-passport": "^1.5.0",
     "loopback-connector-mongodb": "^1.13.0",
     "loopback-datasource-juggler": "^2.39.0",
+    "nodemailer-mailgun-transport": "^1.0.1",
     "passport": "^0.3.0",
     "passport-facebook": "^2.0.0",
     "serve-favicon": "^2.0.1"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "engines": {
-      "node": "4.1.1"
+    "node": "4.1.1"
   },
   "repository": {
     "type": "git",
