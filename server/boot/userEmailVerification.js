@@ -7,7 +7,7 @@ module.exports = function(app) {
         var options = {
             type: 'email',
             to: user.email,
-            from: 'noreply@loopback.com',
+            from: 'noreply@knowsnow.ca',
             subject: 'Thanks for registering for Know Snow',
             template: path.resolve(__dirname, '../../node_modules/loopback/templates/verify.ejs'),
             redirect: redirect
