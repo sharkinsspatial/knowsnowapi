@@ -1,9 +1,9 @@
+require('dotenv').load();
 var path = require('path');
 module.exports = function(app) {
     var User = app.models.User;
     User.afterRemote('create', function(context, user, next) {
-        console.log('After Remote Triggered');
-        var redirect = encodeURIComponent('http://localhost:3001/#/login');
+        var redirect = encodeURIComponent(process.env.SUCCESS_REDIRECT);
         var options = {
             type: 'email',
             to: user.email,
