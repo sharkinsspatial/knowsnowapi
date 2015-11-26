@@ -1,4 +1,4 @@
-require('dotenv').load();
+require('dotenv').config({silent: true});
 var path = require('path');
 module.exports = function(app) {
     var User = app.models.User;

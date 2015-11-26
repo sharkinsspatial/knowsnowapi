@@ -1,4 +1,4 @@
-require('dotenv').load();
+require('dotenv').config({silent: true});
 var mongoUri = process.env.MONGOLAB_URL ||
     'mongodb://localhost/mydb';
 var mailGunAPIKey = process.env.MAILGUN_API_KEY;
