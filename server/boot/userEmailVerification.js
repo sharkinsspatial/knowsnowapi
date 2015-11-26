@@ -10,7 +10,8 @@ module.exports = function(app) {
             from: 'noreply@knowsnow.ca',
             subject: 'Thanks for registering for Know Snow',
             template: path.resolve(__dirname, '../../node_modules/loopback/templates/verify.ejs'),
-            redirect: redirect
+            redirect: redirect,
+            host: process.env.HOST
         };
 
         user.verify(options, function(err, response, next) {
