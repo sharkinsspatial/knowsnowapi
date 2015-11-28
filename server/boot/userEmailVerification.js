@@ -6,7 +6,7 @@ module.exports = function(app) {
         var redirect = encodeURIComponent(process.env.SUCCESS_REDIRECT);
         var userModel = user.constructor;
         var verifyHref = 'http://'
-            + process.env.HOST
+            + process.env.HOST_URL
             + '/api'
             + userModel.http.path
             + '/confirm'
