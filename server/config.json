@@ -1,0 +1,10 @@
+{
+    "cloudStoreImages": {
+    "contentType": "image/jpeg",
+    "thumbExt": "_thumb.jpg",
+    "thumbWidth": 75,
+    "displayExt": "_md.jpg",
+    "displayWidth": 500,
+    "s3": {}
+  }
+}

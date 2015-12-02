@@ -1,1 +1,7 @@
-{}
+{
+    "fileStorageDS": {
+        "name": "fileStorageDS",
+        "connector": "loopback-component-storage",
+        "provider": "filesystem"
+    }
+}

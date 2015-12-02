@@ -47,5 +47,9 @@
     },
     "Email": {
         "dataSource": "email"
+    },
+    "CloudStoreImage": {
+        "dataSource": "fileStorageDS",
+        "public": true
     }
 }
