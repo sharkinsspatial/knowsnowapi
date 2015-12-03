@@ -1,3 +1,4 @@
+var exif = require('exif-parser');
 module.exports = function (CloudStoreImage) {
     var app;
 
@@ -34,15 +35,42 @@ module.exports = function (CloudStoreImage) {
 
     CloudStoreImage.afterRemote('upload', function (ctx, res, next) {
         //var header = ctx.req.headers['image-type'];
-
         var file = res.result.files.fileUpload[0];
+
         var fileRoot = CloudStoreImage.app.datasources.fileStorageDS.settings.root;
 
         var ext = getExtension(file.name);
         var fileNameRoot = file.name.substr(0, file.name.length - ext.length);
 
         var filePath = fileRoot + '/' + file.container + '/' + file.name;
+        fs.open(filePath, 'r', function(status, fd) {
+            if (status) {
+                console.log(status);
+                return;
+            }
+            var buffer = new Buffer(65635);
+            fs.read(fd, buffer, 0, 65635, 0, function(err, bytesRead, buffer) {
+                var parser = exif.create(buffer);
+                var result = parser.parse();
+                CloudStoreImage.app.models.Report.findById(file.container, function(err, instance) {
+                    if (err) {
+                        console.log(err);
+                        next();
+                    }
+                    var imageMetadata = { "name": file.name }
+                    if (result.tags.GPSLongitude) {
+                        imageMetadata.latitude = result.tags.GPSLatitude;
+                        imageMetadata.longitude = result.tags.GPSLongitude;
+                    }
+                    instance.imageMetadatas.create(imageMetadata,
+                        function(err, result) {
+                            var test = result;
+                        });
+                });
 
+            });
+
+        });
         var filePathRoot = fileRoot + '/' + file.container + '/' + fileNameRoot;
 
         var resize = [

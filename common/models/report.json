@@ -9,6 +9,11 @@
                 "type": "belongsTo",
                 "model": "User",
                 "foreignKey": "userId"
+            },
+            "imageMetadatas": {
+                "type": "hasMany",
+                "model": "ImageMetadata",
+                "foreignKey": "reportId"
             }
         }
     },
@@ -64,6 +69,13 @@
         "principalId": "$authenticated",
         "permission": "ALLOW",
         "property": "create"
+    },
+    {
+        "accessType": "EXECUTE",
+        "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "ALLOW",
+        "property": "findById"
     }
     ],
     "methods": {}
