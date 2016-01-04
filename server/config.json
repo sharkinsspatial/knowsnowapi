@@ -1,8 +1,8 @@
 {
     "cloudStoreImages": {
     "contentType": "image/jpeg",
-    "thumbExt": "_thumb.jpg",
-    "thumbWidth": 75,
+    "popupExt": "_popup.jpg",
+    "popupWidth": 250,
     "displayExt": "_md.jpg",
     "displayWidth": 500,
     "s3": {}

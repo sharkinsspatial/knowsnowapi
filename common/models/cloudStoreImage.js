@@ -37,9 +37,13 @@ module.exports = function (CloudStoreImage) {
                         var ext = getExtension(file.name);
                         var fileNameRoot =
                             file.name.substr(0, file.name.length - ext.length);
-                        var mediumName = fileNameRoot + '_md.jpg'
+                        var displayExt = app.get('cloudStoreImages').displayExt
+                        var popupExt = app.get('cloudStoreImages').popupExt
+                        var mediumName = fileNameRoot + displayExt
+                        var popupName = fileNameRoot + popupExt
                         var imageMetadata = { "name": file.name,
-                            "mediumName": mediumName
+                            "mediumName": mediumName,
+                            "popupName": popupName
                         }
                         if (result.tags.GPSLongitude) {
                             imageMetadata.latitude = result.tags.GPSLatitude;
@@ -66,7 +70,9 @@ module.exports = function (CloudStoreImage) {
             qt.convert({
                 src: filePath,
                 dst: spec.filePath,
-                width: spec.width
+                width: spec.width,
+                height: spec.width
+
             }, function (err, path) {
                 if (err) return callback(err);
                 callback();
@@ -130,8 +136,8 @@ module.exports = function (CloudStoreImage) {
         var fileRoot = CloudStoreImage.app.datasources.fileStorageDS.settings.root;
         var filePath = fileRoot + '/' + file.container + '/' + file.name;
         var resize = [
-            {width: app.get('cloudStoreImages').thumbWidth,
-                ext: app.get('cloudStoreImages').thumbExt},
+            {width: app.get('cloudStoreImages').popupWidth,
+                ext: app.get('cloudStoreImages').popupExt},
             {width: app.get('cloudStoreImages').displayWidth,
                 ext: app.get('cloudStoreImages').displayExt}
         ];
