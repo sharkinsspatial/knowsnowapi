@@ -34,8 +34,13 @@ module.exports = function (CloudStoreImage) {
                 CloudStoreImage.app.models.Report.findById(file.container,
                     function(err, instance) {
                         if (err) return callback(err);
-
-                        var imageMetadata = { "name": file.name }
+                        var ext = getExtension(file.name);
+                        var fileNameRoot =
+                            file.name.substr(0, file.name.length - ext.length);
+                        var mediumName = fileNameRoot + '_md.jpg'
+                        var imageMetadata = { "name": file.name,
+                            "mediumName": mediumName
+                        }
                         if (result.tags.GPSLongitude) {
                             imageMetadata.latitude = result.tags.GPSLatitude;
                             imageMetadata.longitude = result.tags.GPSLongitude;
