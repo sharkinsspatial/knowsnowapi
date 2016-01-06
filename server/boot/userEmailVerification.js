@@ -18,8 +18,8 @@ module.exports = function(app) {
         var options = {
             type: 'email',
             to: user.email,
-            from: 'noreply@knowsnow.ca',
-            subject: 'Thanks for registering for Know Snow',
+            from: 'noreply@gatineauxc.ca',
+            subject: 'Thanks for registering for Gatineau XC',
             template: path.resolve(__dirname, '../../node_modules/loopback/templates/verify.ejs'),
             verifyHref: verifyHref
         };
