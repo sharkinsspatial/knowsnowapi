@@ -2,7 +2,7 @@
     "cloudStoreImages": {
     "contentType": "image/jpeg",
     "popupExt": "_popup.jpg",
-    "popupWidth": 250,
+    "popupWidth": 125,
     "displayExt": "_md.jpg",
     "displayWidth": 500,
     "s3": {}
